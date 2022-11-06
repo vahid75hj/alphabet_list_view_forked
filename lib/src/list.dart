@@ -57,6 +57,8 @@ class _AlphabetListState extends State<AlphabetList> {
             controller: widget.scrollController,
             physics: widget.alphabetListOptions.physics,
             slivers: [
+              if (widget.alphabetListOptions.sliverAppbar != null)
+                widget.alphabetListOptions.sliverAppbar!,
               SliverToBoxAdapter(
                 child: SizedBox(
                   height: widget.alphabetListOptions.topOffset,

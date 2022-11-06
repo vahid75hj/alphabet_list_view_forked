@@ -35,6 +35,7 @@ class ListOptions {
     this.beforeList,
     this.afterList,
     this.listHeaderBuilder,
+    this.sliverAppbar,
   }) : assert((topOffset ?? 0) >= 0);
 
   /// Optional background color.
@@ -69,6 +70,9 @@ class ListOptions {
 
   /// Builder function for headers.
   final SymbolBuilder? listHeaderBuilder;
+
+  ///custom sliver appbar
+  final Widget? sliverAppbar;
 }
 
 /// Options for the scrollbar of the AlphabetListView
@@ -77,7 +81,7 @@ class ScrollbarOptions {
     this.width = 40,
     this.padding,
     this.mainAxisAlignment = MainAxisAlignment.spaceEvenly,
-    this.backgroundColor,
+    this.scrollBarDecoration,
     this.symbols = defaultSymbols,
     this.jumpToSymbolsWithNoEntries = false,
     this.forcePosition,
@@ -93,8 +97,8 @@ class ScrollbarOptions {
   /// Placement of the children in the sidebar.
   final MainAxisAlignment mainAxisAlignment;
 
-  /// Optional background color for the sidebar.
-  final Color? backgroundColor;
+  /// Optional decoration for the sidebar.
+  final BoxDecoration? scrollBarDecoration;
 
   /// A [List] of [String] representing the symbols to be shown.
   ///

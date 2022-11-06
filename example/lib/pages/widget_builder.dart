@@ -42,7 +42,7 @@ class ExampleWidgetBuilder extends StatelessWidget {
                 ),
               ),
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.secondaryVariant,
+                color: Theme.of(context).colorScheme.secondary,
                 borderRadius: const BorderRadius.horizontal(
                   left: Radius.circular(100.0),
                 ),
@@ -52,7 +52,9 @@ class ExampleWidgetBuilder extends StatelessWidget {
         ),
         scrollbarOptions: ScrollbarOptions(
           jumpToSymbolsWithNoEntries: true,
-          backgroundColor: Theme.of(context).colorScheme.secondaryVariant,
+          scrollBarDecoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.surfaceVariant,
+          ),
           symbolBuilder: (context, symbol, state) {
             Color color;
             if (state == AlphabetScrollbarItemState.active) {
@@ -101,7 +103,7 @@ class ExampleWidgetBuilder extends StatelessWidget {
                     borderRadius: const BorderRadius.horizontal(
                       right: Radius.circular(100.0),
                     ),
-                    color: Theme.of(context).colorScheme.secondaryVariant,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(

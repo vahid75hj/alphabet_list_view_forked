@@ -54,11 +54,10 @@ class _AlphabetListViewState extends State<AlphabetListView> {
       rowTextDirection = TextDirection.ltr;
     }
 
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+    return Stack(
       textDirection: rowTextDirection,
       children: [
-        Expanded(
+        Positioned.fill(
           child: Stack(
             children: [
               AlphabetList(
@@ -75,11 +74,17 @@ class _AlphabetListViewState extends State<AlphabetListView> {
             ],
           ),
         ),
-        AlphabetScrollbar(
-          items: sortedItems,
-          alphabetScrollbarOptions: widget.options.scrollbarOptions,
-          symbolChangeNotifierScrollbar: symbolChangeNotifierScrollbar,
-          symbolChangeNotifierList: symbolChangeNotifierList,
+        Positioned.directional(
+          textDirection: rowTextDirection ?? Directionality.of(context),
+          end: 0,
+          top: 0,
+          bottom: 0,
+          child: AlphabetScrollbar(
+            items: sortedItems,
+            alphabetScrollbarOptions: widget.options.scrollbarOptions,
+            symbolChangeNotifierScrollbar: symbolChangeNotifierScrollbar,
+            symbolChangeNotifierList: symbolChangeNotifierList,
+          ),
         ),
       ],
     );
